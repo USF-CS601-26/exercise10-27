@@ -17,7 +17,7 @@ public class SynchronizedLibraryCatalog implements LibraryCatalog {
     @Override
     public void addBook(String title, String author) {
         // TODO: Make this method synchronized
-        books.add(new threadsafelibrary.Book(title, author));
+        books.add(new Book(title, author));
         logChange("Added: " + title);
     }
 
@@ -45,7 +45,7 @@ public class SynchronizedLibraryCatalog implements LibraryCatalog {
     @Override
     public boolean returnBook(String title) {
         // TODO: Make this method synchronized
-        for (threadsafelibrary.Book book : books) {
+        for (Book book : books) {
             if (book.getTitle().equals(title) && book.isCheckedOut()) {
                 book.returnToLibrary();
                 logChange("Returned: " + title);
